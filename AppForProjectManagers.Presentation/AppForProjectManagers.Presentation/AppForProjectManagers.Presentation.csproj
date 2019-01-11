@@ -52,6 +52,12 @@
     <Compile Include="AddEmployee.Designer.cs">
       <DependentUpon>AddEmployee.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChooseEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChooseEmployee.Designer.cs">
+      <DependentUpon>ChooseEmployee.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,6 +68,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AddEmployee.resx">
       <DependentUpon>AddEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChooseEmployee.resx">
+      <DependentUpon>ChooseEmployee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -89,6 +98,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AppForProjectManagers.Data\AppForProjectManagers.Data.csproj">
+      <Project>{56F5ACF7-6117-4CEC-8657-1CC0722228E1}</Project>
+      <Name>AppForProjectManagers.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AppForProjectManagers.Domain\AppForProjectManagers.Domain.csproj">
       <Project>{5392c6ff-deb8-4eed-b0a4-3c4a2234bd62}</Project>
       <Name>AppForProjectManagers.Domain</Name>

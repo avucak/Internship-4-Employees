@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AppForProjectManagers.Infrastructure.Enumerators
 {
-    public enum Roles
+    public enum Positions
     {
         Programmer=1,
         Designer=2,

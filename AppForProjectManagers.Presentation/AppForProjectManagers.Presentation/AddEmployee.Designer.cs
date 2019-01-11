@@ -137,6 +137,7 @@
             this.cbPosition.Name = "cbPosition";
             this.cbPosition.Size = new System.Drawing.Size(155, 24);
             this.cbPosition.TabIndex = 11;
+            this.cbPosition.SelectedIndexChanged += new System.EventHandler(this.cbPosition_SelectedIndexChanged);
             // 
             // DateOfBirthPicker
             // 
