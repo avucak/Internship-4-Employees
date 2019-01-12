@@ -16,10 +16,10 @@ namespace AppForProjectManagers.Presentation
     {
         private List<Employee> _employees;
         private EmployeesRepository _employeesRepository;
-        public ChooseEmployee()
+        public ChooseEmployee(EmployeesRepository employeesRepository)
         {
             InitializeComponent();
-            _employeesRepository = new EmployeesRepository();
+            _employeesRepository = employeesRepository;
             FillComboBox();
         }
 
@@ -35,7 +35,22 @@ namespace AppForProjectManagers.Presentation
 
         private void btnSeeDetails_Click(object sender, EventArgs e)
         {
+            if (cbChooseEmployee.SelectedIndex < 0)
+            {
+                MessageBox.Show("Trebate odabrati radnika");
+                return;
+            }
 
+            var selected = cbChooseEmployee.Text.Split();
+            Employee employee = null;
+            foreach (var em in _employees)
+            {
+                if (em.OIB.ToString() == selected[0])
+                    employee = em;
+            }
+
+            var employeeDetails = new SeeEmployeeDetails(employee);
+            employeeDetails.Show();
         }
     }
 }

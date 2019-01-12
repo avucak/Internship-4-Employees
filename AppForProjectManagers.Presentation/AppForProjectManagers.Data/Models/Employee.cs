@@ -14,15 +14,15 @@ namespace AppForProjectManagers.Data.Models
         public int OIB { get; set; }
         public DateTime DateOfBirth{ get; set; }
         //public List<Project> ListOfProjects { get; set; }
-        public Positions Role;
+        public Positions Position;
 
-        public Employee(string name, string surname, int oib, DateTime dateOfBirth, Positions role)
+        public Employee(string name, string surname, int oib, DateTime dateOfBirth, Positions position)
         {
             Name = name;
             Surname = surname;
             OIB = oib;
             DateOfBirth = dateOfBirth;
-            Role = role;
+            Position = position;
         }
     }
 }

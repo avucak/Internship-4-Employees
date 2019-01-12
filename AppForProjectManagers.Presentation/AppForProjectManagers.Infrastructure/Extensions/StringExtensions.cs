@@ -20,7 +20,7 @@ namespace AppForProjectManagers.Infrastructure.Extensions
         {
             text = text.Trim();
             var regex = new Regex(@"\s{2,}");
-            text = regex.Replace(text, " ");
+            text = regex.Replace(text," ");
             return text;
         }
         public static string FirstLetterCapitalRestNot(this string text)
@@ -34,7 +34,7 @@ namespace AppForProjectManagers.Infrastructure.Extensions
                 words[i] = words[i][0].ToString().ToUpper() + words[i].Substring(1, length).ToLower();
                 text += words[i];
                 if (i < words.Length - 1)
-                    text += "";
+                    text += " ";
             }
             return text;
         }

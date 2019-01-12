@@ -38,7 +38,7 @@
             // 
             this.button1.Location = new System.Drawing.Point(118, 56);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(199, 35);
+            this.button1.Size = new System.Drawing.Size(252, 35);
             this.button1.TabIndex = 0;
             this.button1.Text = "Add an employee";
             this.button1.UseVisualStyleBackColor = true;
@@ -48,7 +48,7 @@
             // 
             this.btnSeeDetailsEmployees.Location = new System.Drawing.Point(118, 112);
             this.btnSeeDetailsEmployees.Name = "btnSeeDetailsEmployees";
-            this.btnSeeDetailsEmployees.Size = new System.Drawing.Size(199, 37);
+            this.btnSeeDetailsEmployees.Size = new System.Drawing.Size(252, 37);
             this.btnSeeDetailsEmployees.TabIndex = 1;
             this.btnSeeDetailsEmployees.Text = "See details about employees";
             this.btnSeeDetailsEmployees.UseVisualStyleBackColor = true;

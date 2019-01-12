@@ -28,7 +28,7 @@ namespace AppForProjectManagers.Presentation
 
         private void btnSeeDetailsEmployees_Click(object sender, EventArgs e)
         {
-            var ChooseE = new ChooseEmployee();
+            var ChooseE = new ChooseEmployee(employeesRepository);
             ChooseE.ShowDialog();
         }
     }
