@@ -14,9 +14,13 @@ namespace AppForProjectManagers.Presentation
     public partial class Form1 : Form
     {
         public EmployeesRepository employeesRepository;
+        public ProjectsRepository projectsRepository;
+        public EmployeeProjectRepository employeeProjectRepository;
         public Form1()
         {
             employeesRepository=new EmployeesRepository();
+            projectsRepository = new ProjectsRepository();
+            employeeProjectRepository = new EmployeeProjectRepository();
             InitializeComponent();
         }
 
@@ -30,6 +34,12 @@ namespace AppForProjectManagers.Presentation
         {
             var ChooseE = new ChooseEmployee(employeesRepository);
             ChooseE.ShowDialog();
+        }
+
+        private void AddProject_Click(object sender, EventArgs e)
+        {
+            var addP = new AddProject(projectsRepository, employeesRepository, employeeProjectRepository);
+            addP.ShowDialog();
         }
     }
 }

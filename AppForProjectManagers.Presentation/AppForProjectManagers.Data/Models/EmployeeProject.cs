@@ -12,7 +12,7 @@ namespace AppForProjectManagers.Data.Models
         public string ProjectName { get; set; }
         public int Hours { get; set; }
 
-        public EmployeeProject(int oib, string projectName, int hours)
+        public EmployeeProject(string projectName, int oib, int hours)
         {
             OIB = oib;
             ProjectName = projectName;

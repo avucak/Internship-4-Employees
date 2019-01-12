@@ -45,9 +45,9 @@
             // cbChooseEmployee
             // 
             this.cbChooseEmployee.FormattingEnabled = true;
-            this.cbChooseEmployee.Location = new System.Drawing.Point(152, 73);
+            this.cbChooseEmployee.Location = new System.Drawing.Point(92, 73);
             this.cbChooseEmployee.Name = "cbChooseEmployee";
-            this.cbChooseEmployee.Size = new System.Drawing.Size(121, 24);
+            this.cbChooseEmployee.Size = new System.Drawing.Size(218, 24);
             this.cbChooseEmployee.TabIndex = 1;
             // 
             // btnSeeDetails
