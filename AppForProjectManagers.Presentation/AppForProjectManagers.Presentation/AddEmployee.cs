@@ -16,13 +16,27 @@ namespace AppForProjectManagers.Presentation
 {
     public partial class AddEmployee : Form
     {
-        public EmployeesRepository EmployeesRepository;
-        public AddEmployee(EmployeesRepository employeesRepository)
+        private ProjectsRepository _projectsRepository;
+        private EmployeeProjectRepository _employeeProjectRepository;
+        private EmployeesRepository _employeesRepository;
+        public AddEmployee(EmployeesRepository employeesRepository, ProjectsRepository projectsRepository, EmployeeProjectRepository employeeProjectRepository)
         {
-            EmployeesRepository = employeesRepository;
+            _projectsRepository = projectsRepository;
+            _employeesRepository = employeesRepository;
+            _employeeProjectRepository = employeeProjectRepository;
             InitializeComponent();
             AddPositions();
+            LoadProjects();
         }
+
+        private void LoadProjects()
+        {
+            foreach (var project in _projectsRepository.GetAll())
+            {
+                ListOfProjects.Items.Add(project.Name);
+            }
+        }
+
         private void Save_Click(object sender, EventArgs e)
         {
             if (txtName.Text == "" || txtSurname.Text =="" || txtOIB.Text == "")
@@ -59,18 +73,24 @@ namespace AppForProjectManagers.Presentation
                 if (positionInput.ToString() == role.ToString())
                     position = (Positions)role;
             }
-            
+            foreach (var project in ListOfProjects.CheckedItems)
+            {
+                var projectName = project.ToString();
+                var hoursOnProject = new HoursOnProject(int.Parse(oib), projectName, _employeeProjectRepository);
+                hoursOnProject.ShowDialog();
+            }
+           
             var employee = new Employee(name.FirstLetterCapitalRestNot(), surname.FirstLetterCapitalRestNot(), OIB, dateOfBirth, position);
-            EmployeesRepository.Add(employee);
+            _employeesRepository.Add(employee);
             Close();
 
         }
 
         private void AddPositions()
         {
-            foreach (var role in Enum.GetValues(typeof(Positions)).Cast<Positions>())
+            foreach (var position in Enum.GetValues(typeof(Positions)).Cast<Positions>())
             {
-                cbPosition.Items.Add(role);
+                cbPosition.Items.Add(position);
             }
         }
 

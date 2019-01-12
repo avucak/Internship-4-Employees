@@ -41,6 +41,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtHoursThisWeek = new System.Windows.Forms.TextBox();
+            this.btnIndicator = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ListOfProjects
@@ -89,7 +92,7 @@
             // 
             // Edit
             // 
-            this.Edit.Location = new System.Drawing.Point(208, 400);
+            this.Edit.Location = new System.Drawing.Point(207, 533);
             this.Edit.Name = "Edit";
             this.Edit.Size = new System.Drawing.Size(105, 45);
             this.Edit.TabIndex = 20;
@@ -153,11 +156,38 @@
             this.label1.TabIndex = 14;
             this.label1.Text = "Details about an employee:";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(38, 419);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(112, 17);
+            this.label7.TabIndex = 27;
+            this.label7.Text = "Hours this week:";
+            // 
+            // txtHoursThisWeek
+            // 
+            this.txtHoursThisWeek.Location = new System.Drawing.Point(180, 419);
+            this.txtHoursThisWeek.Name = "txtHoursThisWeek";
+            this.txtHoursThisWeek.Size = new System.Drawing.Size(155, 22);
+            this.txtHoursThisWeek.TabIndex = 28;
+            // 
+            // btnIndicator
+            // 
+            this.btnIndicator.Location = new System.Drawing.Point(359, 416);
+            this.btnIndicator.Name = "btnIndicator";
+            this.btnIndicator.Size = new System.Drawing.Size(94, 25);
+            this.btnIndicator.TabIndex = 29;
+            this.btnIndicator.UseVisualStyleBackColor = true;
+            // 
             // SeeEmployeeDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(518, 501);
+            this.ClientSize = new System.Drawing.Size(518, 629);
+            this.Controls.Add(this.btnIndicator);
+            this.Controls.Add(this.txtHoursThisWeek);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.ListOfProjects);
             this.Controls.Add(this.DateOfBirthPicker);
             this.Controls.Add(this.cbPosition);
@@ -193,5 +223,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtHoursThisWeek;
+        private System.Windows.Forms.Button btnIndicator;
     }
 }

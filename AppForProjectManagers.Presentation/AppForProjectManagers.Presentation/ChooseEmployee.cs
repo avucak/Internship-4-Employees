@@ -16,10 +16,14 @@ namespace AppForProjectManagers.Presentation
     {
         private List<Employee> _employees;
         private EmployeesRepository _employeesRepository;
-        public ChooseEmployee(EmployeesRepository employeesRepository)
+        private EmployeeProjectRepository _employeeProjectRepository;
+        private ProjectsRepository _projectsRepository;
+        public ChooseEmployee(EmployeesRepository employeesRepository, EmployeeProjectRepository employeeProjectRepository, ProjectsRepository projectsRepository)
         {
             InitializeComponent();
             _employeesRepository = employeesRepository;
+            _employeeProjectRepository = employeeProjectRepository;
+            _projectsRepository = projectsRepository;
             FillComboBox();
         }
 
@@ -49,7 +53,7 @@ namespace AppForProjectManagers.Presentation
                     employee = em;
             }
 
-            var employeeDetails = new SeeEmployeeDetails(employee);
+            var employeeDetails = new SeeEmployeeDetails(employee,_employeeProjectRepository,_projectsRepository);
             employeeDetails.Show();
         }
     }

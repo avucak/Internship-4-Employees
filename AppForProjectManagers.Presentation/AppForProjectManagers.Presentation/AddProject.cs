@@ -1,4 +1,5 @@
-﻿using AppForProjectManagers.Domain.Repositories;
+﻿using AppForProjectManagers.Data.Models;
+using AppForProjectManagers.Domain.Repositories;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,7 +16,7 @@ namespace AppForProjectManagers.Presentation
     {
         private ProjectsRepository _projectsRepository;
         private EmployeesRepository _employeesRepository;
-        public EmployeeProjectRepository _employeeProjectRepository;
+        private EmployeeProjectRepository _employeeProjectRepository;
         public AddProject(ProjectsRepository projectsRepository,EmployeesRepository employeesRepository,EmployeeProjectRepository employeeProjectRepository)
         {
             _projectsRepository = projectsRepository;
@@ -66,6 +67,8 @@ namespace AppForProjectManagers.Presentation
                 hoursOnProject.ShowDialog();
             }
 
+            var project = new Project(name, startDate, endDate);
+            _projectsRepository.Add(project);
             Close();
         }
     }

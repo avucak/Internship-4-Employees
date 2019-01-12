@@ -7,7 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AppForProjectManagers.Data.Models;
 using AppForProjectManagers.Domain.Repositories;
+using AppForProjectManagers.Infrastructure.Enumerators;
 
 namespace AppForProjectManagers.Presentation
 {
@@ -22,17 +24,36 @@ namespace AppForProjectManagers.Presentation
             projectsRepository = new ProjectsRepository();
             employeeProjectRepository = new EmployeeProjectRepository();
             InitializeComponent();
+            InitialEmployeesAndProjects();
+        }
+
+        private void InitialEmployeesAndProjects()
+        {
+            var Pavic = new Employee("Ivan", "Pavić", 1, new DateTime(2000, 1, 1),Positions.Designer);
+            var Kalic = new Employee("Ivan", "Kalić", 2, new DateTime(1993, 12, 15), Positions.Designer);
+            var Petar = new Employee("Petar", "Palinčić", 3, new DateTime(1997, 4, 5), Positions.Programmer);
+            var dumpDays = new Project("Dump days", new DateTime(2017, 12,12), new DateTime(2018, 6, 1));
+            employeesRepository.Add(Pavic);
+            employeesRepository.Add(Kalic);
+            employeesRepository.Add(Petar);
+            projectsRepository.Add(dumpDays);
+            var dumpPavic = new EmployeeProject(dumpDays.Name, Pavic.OIB, 8);
+            var dumpKalic = new EmployeeProject(dumpDays.Name, Kalic.OIB, 3);
+            var dumpPetar = new EmployeeProject(dumpDays.Name, Petar.OIB, 28);
+            employeeProjectRepository.Add(dumpPavic);
+            employeeProjectRepository.Add(dumpKalic);
+            employeeProjectRepository.Add(dumpPetar);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var AddE = new AddEmployee(employeesRepository);
+            var AddE = new AddEmployee(employeesRepository,projectsRepository,employeeProjectRepository);
             AddE.ShowDialog();
         }
 
         private void btnSeeDetailsEmployees_Click(object sender, EventArgs e)
         {
-            var ChooseE = new ChooseEmployee(employeesRepository);
+            var ChooseE = new ChooseEmployee(employeesRepository,employeeProjectRepository, projectsRepository);
             ChooseE.ShowDialog();
         }
 

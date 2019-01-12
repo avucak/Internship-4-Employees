@@ -13,12 +13,11 @@ namespace AppForProjectManagers.Data.Models
         public DateTime EndDate { get; set; }
         public List<Employee> ListOfEmployees { get; set; }
 
-        public Project(string name, DateTime startDate, DateTime endDate, List<Employee> listOfEmployees)
+        public Project(string name, DateTime startDate, DateTime endDate)
         {
             Name = name;
             StartDate = startDate;
             EndDate = endDate;
-            ListOfEmployees = listOfEmployees;
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using AppForProjectManagers.Data.Models;
+using AppForProjectManagers.Domain.Repositories;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,11 +15,16 @@ namespace AppForProjectManagers.Presentation
     public partial class SeeEmployeeDetails : Form
     {
         private Employee _employee;
-        public SeeEmployeeDetails(Employee employee)
+        private EmployeeProjectRepository _employeeProjectRepository;
+        private ProjectsRepository _projectsRepository;
+        public SeeEmployeeDetails(Employee employee, EmployeeProjectRepository employeeProjectRepository,ProjectsRepository projectsRepository)
         {
+            _projectsRepository = projectsRepository;
+            _employeeProjectRepository = employeeProjectRepository;
             _employee = employee;
             InitializeComponent();
             FillAndDisable();
+            
         }
 
         private void FillAndDisable()
@@ -33,6 +39,23 @@ namespace AppForProjectManagers.Presentation
             DateOfBirthPicker.Enabled = false;
             cbPosition.Text = _employee.Position.ToString();
             cbPosition.Enabled = false;
+            var projectList = _employeeProjectRepository.GetAllProjectsEmployeeWorksOn(_employee);
+            var hoursThisWeek =
+                _employeeProjectRepository.CalculateAllHoursForEmployee(_employee.OIB, _projectsRepository.GetAll());
+            txtHoursThisWeek.Text = hoursThisWeek.ToString();
+            btnIndicator.BackColor = Color.Green;
+            if (hoursThisWeek < 30)
+                btnIndicator.BackColor = Color.Yellow;
+            else if(hoursThisWeek>40)
+                btnIndicator.BackColor = Color.Red;
+            txtHoursThisWeek.ReadOnly = true;
+            foreach (var project in projectList)
+            {
+                var hours = _employeeProjectRepository.ReturnHours(_employee.OIB, project);
+                ListOfProjects.Items.Add($"{project} ({hours} hours)");
+            }
+            ListOfProjects.Enabled = false;
+
         }
 
 
