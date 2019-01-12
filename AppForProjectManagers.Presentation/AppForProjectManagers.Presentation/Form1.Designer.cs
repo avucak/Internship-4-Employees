@@ -30,7 +30,7 @@
         {
             this.button1 = new System.Windows.Forms.Button();
             this.btnSeeDetailsEmployees = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnEditEmployees = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.AddProject = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -51,18 +51,19 @@
             this.btnSeeDetailsEmployees.Name = "btnSeeDetailsEmployees";
             this.btnSeeDetailsEmployees.Size = new System.Drawing.Size(252, 37);
             this.btnSeeDetailsEmployees.TabIndex = 1;
-            this.btnSeeDetailsEmployees.Text = "See details about employees";
+            this.btnSeeDetailsEmployees.Text = "See details about employees or edit";
             this.btnSeeDetailsEmployees.UseVisualStyleBackColor = true;
             this.btnSeeDetailsEmployees.Click += new System.EventHandler(this.btnSeeDetailsEmployees_Click);
             // 
-            // button3
+            // btnEditEmployees
             // 
-            this.button3.Location = new System.Drawing.Point(118, 170);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(95, 34);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnEditEmployees.Location = new System.Drawing.Point(118, 183);
+            this.btnEditEmployees.Name = "btnEditEmployees";
+            this.btnEditEmployees.Size = new System.Drawing.Size(252, 34);
+            this.btnEditEmployees.TabIndex = 2;
+            this.btnEditEmployees.Text = "Edit employees";
+            this.btnEditEmployees.UseVisualStyleBackColor = true;
+            this.btnEditEmployees.Click += new System.EventHandler(this.btnEditEmployees_Click);
             // 
             // button4
             // 
@@ -90,7 +91,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.AddProject);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnEditEmployees);
             this.Controls.Add(this.btnSeeDetailsEmployees);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
@@ -103,7 +104,7 @@
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnSeeDetailsEmployees;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnEditEmployees;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button AddProject;
     }

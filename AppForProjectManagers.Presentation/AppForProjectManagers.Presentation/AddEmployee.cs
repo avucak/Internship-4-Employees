@@ -53,7 +53,11 @@ namespace AppForProjectManagers.Presentation
                 MessageBox.Show("OIB mora biti broj");
                 return;
             }
-
+            if (!_employeesRepository.CheckOIB(OIB))
+            {
+                MessageBox.Show("Postoji korisnik s ovim OIB-om");
+                return;
+            }
             var dateOfBirth = DateOfBirthPicker.Value;
             if (dateOfBirth.AddYears(18) > DateTime.Now)
             {

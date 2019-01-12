@@ -62,5 +62,10 @@ namespace AppForProjectManagers.Presentation
             var addP = new AddProject(projectsRepository, employeesRepository, employeeProjectRepository);
             addP.ShowDialog();
         }
+
+        private void btnEditEmployees_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

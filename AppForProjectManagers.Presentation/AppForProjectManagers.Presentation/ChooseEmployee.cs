@@ -39,6 +39,7 @@ namespace AppForProjectManagers.Presentation
 
         private void btnSeeDetails_Click(object sender, EventArgs e)
         {
+
             if (cbChooseEmployee.SelectedIndex < 0)
             {
                 MessageBox.Show("Trebate odabrati radnika");
@@ -52,9 +53,30 @@ namespace AppForProjectManagers.Presentation
                 if (em.OIB.ToString() == selected[0])
                     employee = em;
             }
+            var employeeDetails = new SeeEmployeeDetails(employee,_employeeProjectRepository,_projectsRepository,_employeesRepository);
+            employeeDetails.ShowDialog();
+            Close();
+        }
 
-            var employeeDetails = new SeeEmployeeDetails(employee,_employeeProjectRepository,_projectsRepository);
-            employeeDetails.Show();
+
+        private void Edit_Click(object sender, EventArgs e)
+        {
+            if (cbChooseEmployee.SelectedIndex < 0)
+            {
+                MessageBox.Show("Trebate odabrati radnika");
+                return;
+            }
+
+            var selected = cbChooseEmployee.Text.Split();
+            Employee employee = null;
+            foreach (var em in _employees)
+            {
+                if (em.OIB.ToString() == selected[0])
+                    employee = em;
+            }
+            var editE = new EditEmployee(employee, _employeeProjectRepository, _projectsRepository, _employeesRepository);
+            editE.ShowDialog();
+            Close();
         }
     }
 }

@@ -18,20 +18,33 @@ namespace AppForProjectManagers.Domain.Repositories
         public List<EmployeeProject> GetAll() => ListOfEmployeesAndProjects;
         public void Add(EmployeeProject employeeProject)
         {
-            if (CheckIfExists(employeeProject.ProjectName,employeeProject.OIB))
+            if (CheckIfExistsAndUpdate(employeeProject.ProjectName,employeeProject.OIB,employeeProject.Hours))
                 ListOfEmployeesAndProjects.Add(employeeProject);
         }
 
-        public bool CheckIfExists(string projectName,int oib)
+        public bool CheckIfExistsAndUpdate(string projectName,int oib, int hours)
         {
             foreach (var employeeProject in ListOfEmployeesAndProjects)
             {
-                if (employeeProject.OIB == oib && employeeProject.ProjectName==projectName)
+                if (employeeProject.OIB == oib && employeeProject.ProjectName == projectName)
+                {
+                    employeeProject.Hours = hours;
                     return false;
+                }
             }
             return true;
         }
 
+        public void Remove(string projectName, int oib)
+        {
+            EmployeeProject employeeProjectToRemove=null;
+            foreach (var employeeProject in ListOfEmployeesAndProjects)
+            {
+                if (employeeProject.OIB == oib && employeeProject.ProjectName == projectName)
+                employeeProjectToRemove = employeeProject;
+             }
+            ListOfEmployeesAndProjects.Remove(employeeProjectToRemove);
+        }
 
         public List<string> GetAllProjectsEmployeeWorksOn(Employee employee)
         {
@@ -66,7 +79,7 @@ namespace AppForProjectManagers.Domain.Repositories
             }
             return hours;
         }
-        public int CalculateAllHoursForEmployee(int oib, List<Project> allProjects)
+        public int CalculateAllHoursThisWeekForEmployee(int oib, List<Project> allProjects)
         {
             var hours = 0;
             foreach (var employeeProject in ListOfEmployeesAndProjects)
@@ -75,7 +88,10 @@ namespace AppForProjectManagers.Domain.Repositories
                 {
                     foreach (var project in allProjects)
                     {
-                        if(project.Name==employeeProject.ProjectName && project.EndDate<=DateTime.Now.AddDays(7))
+                        DayOfWeek currentDayOfWeek = DateTime.Now.DayOfWeek;
+                        int days = currentDayOfWeek - DayOfWeek.Monday;
+                        DateTime MondayThisWeek = DateTime.Now.AddDays(-days);
+                        if (project.Name==employeeProject.ProjectName && project.EndDate>=MondayThisWeek && project.StartDate<=MondayThisWeek.AddDays(7))
                             hours += employeeProject.Hours;
                     }
                 }

@@ -32,5 +32,11 @@ namespace AppForProjectManagers.Domain.Repositories
             }
             return true;
         }
+
+        public void RemoveEmployee(Employee employee)
+        {
+            if (ListOfEmployees.Contains(employee))
+                ListOfEmployees.Remove(employee);
+        }
     }
 }

@@ -19,5 +19,15 @@ namespace AppForProjectManagers.Data.Models
             StartDate = startDate;
             EndDate = endDate;
         }
+
+        public string ProjectState()
+        {
+            if (StartDate > DateTime.Now)
+                return "planned";
+            else if (EndDate < DateTime.Now)
+                return "finished";
+            else
+                return "active";
+        }
     }
 }

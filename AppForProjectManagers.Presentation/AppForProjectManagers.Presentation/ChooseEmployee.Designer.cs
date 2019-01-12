@@ -31,6 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cbChooseEmployee = new System.Windows.Forms.ComboBox();
             this.btnSeeDetails = new System.Windows.Forms.Button();
+            this.Edit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -52,7 +53,7 @@
             // 
             // btnSeeDetails
             // 
-            this.btnSeeDetails.Location = new System.Drawing.Point(152, 140);
+            this.btnSeeDetails.Location = new System.Drawing.Point(138, 120);
             this.btnSeeDetails.Name = "btnSeeDetails";
             this.btnSeeDetails.Size = new System.Drawing.Size(121, 38);
             this.btnSeeDetails.TabIndex = 2;
@@ -60,11 +61,22 @@
             this.btnSeeDetails.UseVisualStyleBackColor = true;
             this.btnSeeDetails.Click += new System.EventHandler(this.btnSeeDetails_Click);
             // 
+            // Edit
+            // 
+            this.Edit.Location = new System.Drawing.Point(138, 180);
+            this.Edit.Name = "Edit";
+            this.Edit.Size = new System.Drawing.Size(121, 42);
+            this.Edit.TabIndex = 3;
+            this.Edit.Text = "Edit";
+            this.Edit.UseVisualStyleBackColor = true;
+            this.Edit.Click += new System.EventHandler(this.Edit_Click);
+            // 
             // ChooseEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(434, 255);
+            this.Controls.Add(this.Edit);
             this.Controls.Add(this.btnSeeDetails);
             this.Controls.Add(this.cbChooseEmployee);
             this.Controls.Add(this.label1);
@@ -80,5 +92,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbChooseEmployee;
         private System.Windows.Forms.Button btnSeeDetails;
+        private System.Windows.Forms.Button Edit;
     }
 }
