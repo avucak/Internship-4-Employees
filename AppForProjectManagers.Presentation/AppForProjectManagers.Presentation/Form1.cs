@@ -45,13 +45,13 @@ namespace AppForProjectManagers.Presentation
             employeeProjectRepository.Add(dumpPetar);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             var AddE = new AddEmployee(employeesRepository,projectsRepository,employeeProjectRepository);
             AddE.ShowDialog();
         }
 
-        private void btnSeeDetailsEmployees_Click(object sender, EventArgs e)
+        private void BtnSeeDetailsEmployees_Click(object sender, EventArgs e)
         {
             var ChooseE = new ChooseEmployee(employeesRepository,employeeProjectRepository, projectsRepository);
             ChooseE.ShowDialog();
@@ -63,9 +63,15 @@ namespace AppForProjectManagers.Presentation
             addP.ShowDialog();
         }
 
-        private void btnEditEmployees_Click(object sender, EventArgs e)
+        private void BtnEditEmployees_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnDeleteEmployee_Click(object sender, EventArgs e)
+        {
+            var deleteE=new ChooseEmployeeToDelete(employeesRepository,projectsRepository,employeeProjectRepository);
+            deleteE.ShowDialog();
         }
     }
 }
