@@ -1,6 +1,6 @@
 ﻿namespace AppForProjectManagers.Presentation
 {
-    partial class Form1
+    partial class BtnSeeDetailsProject
     {
         /// <summary>
         /// Required designer variable.
@@ -32,6 +32,7 @@
             this.btnSeeDetailsEmployees = new System.Windows.Forms.Button();
             this.btnDeleteEmployee = new System.Windows.Forms.Button();
             this.AddProject = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnAddEmployee
@@ -74,16 +75,27 @@
             this.AddProject.UseVisualStyleBackColor = true;
             this.AddProject.Click += new System.EventHandler(this.AddProject_Click);
             // 
-            // Form1
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(425, 112);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(259, 37);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "See details about projects or edit";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // BtnSeeDetailsProject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 287);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.AddProject);
             this.Controls.Add(this.btnDeleteEmployee);
             this.Controls.Add(this.btnSeeDetailsEmployees);
             this.Controls.Add(this.btnAddEmployee);
-            this.Name = "Form1";
+            this.Name = "BtnSeeDetailsProject";
             this.Text = "Form1";
             this.ResumeLayout(false);
 
@@ -95,6 +107,7 @@
         private System.Windows.Forms.Button btnSeeDetailsEmployees;
         private System.Windows.Forms.Button btnDeleteEmployee;
         private System.Windows.Forms.Button AddProject;
+        private System.Windows.Forms.Button button1;
     }
 }
 

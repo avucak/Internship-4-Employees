@@ -13,12 +13,12 @@ using AppForProjectManagers.Infrastructure.Enumerators;
 
 namespace AppForProjectManagers.Presentation
 {
-    public partial class Form1 : Form
+    public partial class BtnSeeDetailsProject : Form
     {
         public EmployeesRepository employeesRepository;
         public ProjectsRepository projectsRepository;
         public EmployeeProjectRepository employeeProjectRepository;
-        public Form1()
+        public BtnSeeDetailsProject()
         {
             employeesRepository=new EmployeesRepository();
             projectsRepository = new ProjectsRepository();
@@ -72,6 +72,12 @@ namespace AppForProjectManagers.Presentation
         {
             var deleteE=new ChooseEmployeeToDelete(employeesRepository,projectsRepository,employeeProjectRepository);
             deleteE.ShowDialog();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            var chooseP = new ChooseProject(employeesRepository,employeeProjectRepository,projectsRepository);
+            chooseP.ShowDialog();
         }
     }
 }
