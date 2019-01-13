@@ -32,5 +32,10 @@ namespace AppForProjectManagers.Domain.Repositories
             }
             return true;
         }
+        public void RemoveProject(Project project)
+        {
+            if (ListOfProjects.Contains(project))
+                ListOfProjects.Remove(project);
+        }
     }
 }

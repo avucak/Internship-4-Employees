@@ -84,7 +84,10 @@ namespace AppForProjectManagers.Presentation
 
         private void Edit_Click(object sender, EventArgs e)
         {
-
+            var editProject =
+                new EditProject(_project, _projectsRepository, _employeesRepository, _employeeProjectRepository);
+            editProject.ShowDialog();
+            Close();
         }
     }
 }

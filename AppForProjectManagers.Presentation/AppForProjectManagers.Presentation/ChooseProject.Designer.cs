@@ -70,6 +70,7 @@
             this.Edit.TabIndex = 3;
             this.Edit.Text = "Edit";
             this.Edit.UseVisualStyleBackColor = true;
+            this.Edit.Click += new System.EventHandler(this.Edit_Click);
             // 
             // ChooseProject
             // 

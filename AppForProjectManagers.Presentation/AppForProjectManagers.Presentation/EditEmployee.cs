@@ -122,7 +122,11 @@ namespace AppForProjectManagers.Presentation
                 var projectName = project.ToString();
                 if (ListOfProjects.CheckedItems.Contains(project))
                  {
-                     var hoursOnProject = new HoursOnProject(OIB, projectName, _employeeProjectRepository);
+                     if (OIB != _employee.OIB)
+                     {
+                         _employeeProjectRepository.Remove(projectName, OIB);
+                     }
+                    var hoursOnProject = new HoursOnProject(OIB, projectName, _employeeProjectRepository);
                      hoursOnProject.ShowDialog();
                  }
                 else

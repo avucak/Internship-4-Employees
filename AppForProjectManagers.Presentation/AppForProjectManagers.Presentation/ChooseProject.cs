@@ -54,6 +54,29 @@ namespace AppForProjectManagers.Presentation
 
             var pDetails = new SeeProjectDetails(project,_projectsRepository,_employeesRepository,_employeeProjectRepository);
             pDetails.ShowDialog();
+            Close();
+        }
+
+        private void Edit_Click(object sender, EventArgs e)
+        {
+            if (cbChooseProject.SelectedIndex < 0)
+            {
+                MessageBox.Show("Trebate odabrati projekt");
+                return;
+            }
+
+            var selected = cbChooseProject.Text;
+            Project project = null;
+            foreach (var pr in _projects)
+            {
+                if (pr.Name == selected)
+                    project = pr;
+            }
+
+            var editProject =
+                new EditProject(project, _projectsRepository, _employeesRepository, _employeeProjectRepository);
+            editProject.ShowDialog();
+            Close();
         }
     }
 }

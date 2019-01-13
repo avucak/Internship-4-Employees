@@ -20,6 +20,13 @@ namespace AppForProjectManagers.Data.Models
             EndDate = endDate;
         }
 
+        public void Update(string name, DateTime startDate, DateTime endDate)
+        {
+            Name = name;
+            StartDate = startDate;
+            EndDate = endDate;
+        }
+
         public string ProjectState()
         {
             if (StartDate > DateTime.Now)
