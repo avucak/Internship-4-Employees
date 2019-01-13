@@ -79,5 +79,11 @@ namespace AppForProjectManagers.Presentation
             var chooseP = new ChooseProject(employeesRepository,employeeProjectRepository,projectsRepository);
             chooseP.ShowDialog();
         }
+
+        private void btnDeleteProject_Click(object sender, EventArgs e)
+        {
+            var deleteP = new ChooseProjectToDelete(employeesRepository, employeeProjectRepository, projectsRepository);
+            deleteP.ShowDialog();
+        }
     }
 }

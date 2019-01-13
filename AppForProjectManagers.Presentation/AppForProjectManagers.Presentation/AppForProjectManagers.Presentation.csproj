@@ -76,6 +76,12 @@
     <Compile Include="ChooseProject.Designer.cs">
       <DependentUpon>ChooseProject.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChooseProjectToDelete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChooseProjectToDelete.Designer.cs">
+      <DependentUpon>ChooseProjectToDelete.cs</DependentUpon>
+    </Compile>
     <Compile Include="EditEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +134,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ChooseProject.resx">
       <DependentUpon>ChooseProject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChooseProjectToDelete.resx">
+      <DependentUpon>ChooseProjectToDelete.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditEmployee.resx">
       <DependentUpon>EditEmployee.cs</DependentUpon>

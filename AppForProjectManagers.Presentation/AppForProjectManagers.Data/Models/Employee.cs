@@ -14,7 +14,6 @@ namespace AppForProjectManagers.Data.Models
         public string Surname { get; set; }
         public int OIB { get; set; }
         public DateTime DateOfBirth{ get; set; }
-        //public List<Project> ListOfProjects { get; set; }
         public Positions Position;
 
         public Employee(string name, string surname, int oib, DateTime dateOfBirth, Positions position)
